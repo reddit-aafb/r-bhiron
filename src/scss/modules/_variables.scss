@@ -1,0 +1,65 @@
+$color-first: #000000;
+$color-second: #7c878e;
+$color-third: #c7c9c7;
+
+// Color
+$nfl-blue: $color-second;
+$nfl-red: $color-first;
+$nfl-0: #FFF;
+$nfl-100: #4D4D55;
+$nfl-draft-gold: #C9A00F;
+$nfl-draft-black: #2F2E32;
+$h-switchboard-height: 0;
+
+$nameSpace: aafb;
+
+// Media Breaks
+$breakpoints: (name: max, size: 1700, num:20),
+	  (name: medium, size:1040, num:10),
+	  (name: small, size:1100, num:0);
+
+$media-stack:
+	(group: mobile, id: general, rule: "only screen and (max-width: 767px)"),
+	(group: tablet, id: general, rule: "only screen and (min-width: 768px)"),
+	(group: tablet, id: inbetween, rule: "only screen and (min-width: 768px) and (max-width:1024px)"),
+	(group: desktop, id: general, rule: "only screen and (min-width: 1200px)"),
+	(group: custom, id: screen, rule: "only screen ");
+
+// NFL Teams
+$nfl-teams: (name:aafb, abbr:AAFB, url:aafb, fg:$nfl-0, bg:$nfl-blue, eliminated: false, champion: false),
+	(name:Hotshots, abbr:ARI, url:ARZHotshots, fg:#FFFFFF, bg:#F7B643, eliminated: false, champion: false),
+	(name:Legends, abbr:ATL, url:ATLLegends, fg:#FFFFFF, bg:#8540AD, eliminated: false, champion: false),
+	(name:Iron, abbr:BIR, url:BHIron, fg:#FFFFFF, bg:#C4C6C8, eliminated: false, champion: false),
+	(name:Express, abbr:MEM, url:MemExpress, fg:#FFFFFF, bg:#D23131, eliminated: false, champion: false),
+	(name:Apollos, abbr:ORL, url:OrlApollos, fg:#FFFFFF, bg:#F1813A, eliminated: false, champion: false),
+	(name:Stallions, abbr:SLC, url:SLCStallions, fg:#FFFFFF, bg:#3A99CB, eliminated: false, champion: false),
+	(name:Commanders, abbr:SA, url:CommandersSA, fg:#FFFFFF, bg:#C3BFBF, eliminated: false, champion: false),
+	(name:Fleet, abbr:SD, url:SDFleet, fg:#FFFFFF, bg:#F9C546, eliminated: false, champion: false);
+
+// Fonts Info
+$f-stack1: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+$f-stack2: "Arial", "Helvetica", sans-serif;
+$f-stack3: monospace;
+$fonts:(
+  (type: display, variants:(
+	(name: $f-stack1, weight: 400, num: 0),
+	(name: $f-stack1, weight: 700, num: 1)
+  )),
+  (type: copy, variants:(
+	(name: $f-stack2, weight: 400, num: 0),
+	(name: $f-stack2, weight: 700, num: 1)
+  )),
+  (type: code, variants:(
+	(name: $f-stack3, weight: 400, num: 0),
+	(name: $f-stack3, weight: 700, num: 1)
+  ))
+);
+
+// Element Info
+$h-reddit-nav: 20px;
+$h-team-header: 60px;
+$h-hero: 40px;
+$h-sidebar-pic: $sidebarPicHeight;
+$h-sub-nav: 60px;
+$h-switchboard-height: 0;
+$t-important-links: $h-reddit-nav + $h-team-header + $h-hero + $h-sub-nav;

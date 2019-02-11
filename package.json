@@ -1,0 +1,49 @@
+{
+  "name": "prototyping",
+  "version": "1.0.0",
+  "description": "NPM file for prototyping front end ideas and theories",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmphry/prototyping.git"
+  },
+  "keywords": [
+    "HMPHRY"
+  ],
+  "author": "HMPHRY",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hmphry/prototyping/issues"
+  },
+  "homepage": "https://github.com/hmphry/prototyping#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-es2017": "^6.24.1",
+    "browser-sync": "^2.23.6",
+    "css-mqpacker": "^6.0.2",
+    "es2017": "0.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-file-include": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-webserver": "^0.9.1",
+    "postcss-alias": "^2.0.0",
+    "postcss-base64": "^0.7.1",
+    "postcss-short-size": "^3.0.0"
+  },
+  "dependencies": {
+    "gulp-replace": "^1.0.0",
+    "jquery": "^3.3.1"
+  }
+}

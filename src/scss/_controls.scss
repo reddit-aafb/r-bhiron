@@ -1,0 +1,23 @@
+$headerHeight: 235px; //ex: 20px or false
+$headerSideOffset: $headerHeight - 40px; //ex: 20px or false
+
+// New Promo
+$promos: (
+//     (
+//	 	image: "../img/SB-AD-Bortles.png",
+//	 	target: "SB_AD_Bortles",
+//	 	height: 300px,
+//	 	position: true
+//     ),
+);
+
+// Sidebar Variables
+$sidebarImage: "../img/SB-grand-opening.jpg";
+$sidebarHeader: "Grand Opening";
+$sidebarText: "League kickoff begins on February 9th at 8PM Eastern on CBS.";
+$sidebarPicHeight: 389px;
+$sidebarPicOffset: 0;
+
+// Links in sidebar
+$sidebarLinksHeight: 34px;
+$sidebarLinksCount: 6;

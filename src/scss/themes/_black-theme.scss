@@ -1,0 +1,18 @@
+html{
+	background-color: #000000;
+}
+html:before{
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 400%;
+	width: 100%;
+	margin-top: 80px;
+	background-color: #000000;
+	background-image: url("../img/iron-bg.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+#header{
+	background: #fff;
+}
