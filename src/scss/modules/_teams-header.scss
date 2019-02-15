@@ -121,17 +121,15 @@
 			right: -20px;
 			width: 240px;
 			z-index: 1;
-			background: #06346A;
+			background: $aaf-blue;
 			top: 0;
 			bottom: 0;
 			transform: skewX(-30deg);
+			transition: .3s ease-out;
 		}
 		&:hover::before{
-			@include keyframes(#{$nameSpace}-back-pulse) {
-				50% {
-					background-color: rgba(32, 152, 209, .75);
-				}
-			}
+			background: lighten($aaf-blue, 10);
+			transition: 1s ease-out;
 		}
 		a{
 			content: "";

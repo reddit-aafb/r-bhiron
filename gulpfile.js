@@ -1,6 +1,5 @@
 // global
 var gulp = require('gulp');
-var sourcemaps = require('gulp-sourcemaps');
 var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
 var fileinclude = require('gulp-file-include');
@@ -26,22 +25,12 @@ var post_process = [
 	pcss_media_query_packer({ sort: true })
 ];
 
-// js
-var babel = require('gulp-babel');
-
-// html
-var pug = require('gulp-pug');
-
-// server
-var web_server = require('gulp-webserver');
-var live_reload = require('gulp-livereload');
-
 var file_paths = {
 	src: {
 		assets: "./src/assets/",
 		css: "./src/scss/",
 		js: "./src/js/",
-		html: "./src/pug/",
+		html: "./src/md/",
 		modules: "./src/modules/"
 	},
 	dist: {
@@ -69,9 +58,9 @@ var file_names = {
 		watch: ['**/*.js', '**/*.json', '**/_*.js']
 	},
 	html: {
-		compile: ['**/*.pug'],
-		ignore: ['**/_*.pug'],
-		watch: ['**/*.pug', '**/_*.pug']
+		compile: ['**/*.md'],
+		ignore: ['**/_*.md'],
+		watch: ['**/*.md', '**/_*.md']
 	}
 }
 
@@ -140,23 +129,7 @@ gulp.task('build:css', function(){
 		.pipe(postcss(post_process))
 		.pipe(replace("-webkit-box-align:center;", ""))
 		.pipe(replace("-moz-box-align:center;", ""))
-		.pipe(gulp.dest(task_info.dist))
-		.pipe(live_reload());
-});
-
-// js tasks
-gulp.task('build:js', function(){
-	var task_info = get_file_paths("js");
-	return gulp.src(task_info.src)
-		.pipe(plumber({errorHandler: errorAlert}))
-		.pipe(fileinclude({prefix: '@', basepath: file_paths.src.modules}))
-		.pipe(fileinclude({prefix: '@vendor_', basepath: './node_modules/'}))
-		.pipe(babel({
-			presets: ['es2017'],
-			plugins: ['syntax-dynamic-import']
-		}))
-		.pipe(gulp.dest(task_info.dist))
-		.pipe(live_reload());
+		.pipe(gulp.dest(task_info.dist));
 });
 
 // html tasks
@@ -164,21 +137,8 @@ gulp.task('build:html', function(){
 	var task_info = get_file_paths("html");
 	return gulp.src(task_info.src)
 		.pipe(plumber({errorHandler: errorAlert}))
-		//.pipe(fileinclude({prefix: '@', basepath: file_paths.src.modules}))
-		.pipe(pug({
-			basedir: file_paths.src.modules
-		}))
-		.pipe(gulp.dest(task_info.dist))
-		.pipe(live_reload());
-});
-
-// server tasks
-gulp.task('serve', function() {
-	gulp.src('dist')
-	.pipe(web_server({
-		livereload: true,
-		open: true
-	}));
+		.pipe(fileinclude({prefix: '@', basepath: file_paths.src.modules}))
+		.pipe(gulp.dest(task_info.dist));
 });
 
 
@@ -189,17 +149,11 @@ function errorAlert(error){
 	this.emit('end');
 };
 
-live_reload({
-	start: true
-});
-
 // global tasks
-gulp.task('build', ['build:html','build:css','build:js','build:assets']);
+gulp.task('build', ['build:html','build:css','build:assets']);
 
-gulp.task('default', ['build', 'serve'], function() {
-	live_reload.listen();
+gulp.task('default', ['build'], function() {
 	gulp.watch(get_file_paths("html").watch, [ 'build:html' ]);
 	gulp.watch(get_file_paths("css").watch, [ 'build:css' ]);
-	gulp.watch(get_file_paths("js").watch, [ 'build:js' ]);
 	gulp.watch(get_file_paths("assets").watch, [ 'build:assets' ]);
 });
