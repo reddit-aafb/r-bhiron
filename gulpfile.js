@@ -130,7 +130,6 @@ gulp.task('build:css', function(){
 		.pipe(postcss(post_process))
 		.pipe(replace("-webkit-box-align:center;", ""))
 		.pipe(replace("-moz-box-align:center;", ""))
-		.pipe(gulp.src("./dist/assets/css/screen.css"))
 		.pipe(clipboard())
 		.pipe(gulp.dest(task_info.dist));
 });
